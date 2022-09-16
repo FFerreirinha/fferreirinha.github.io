@@ -1,0 +1,63 @@
+html, body {
+    margin: 0px;
+
+    min-height: 100vh;
+    width: 100vw;
+}
+
+.wrapper {
+    min-height: 100vh;
+
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.player-side {
+    height: 100vh;
+    width: 50vw;
+}
+
+#player-one {
+    background-color: green;
+}
+
+#player-two {
+    background-color: red;
+}
+
+.gameboard {
+    height: 300px;
+    width: 300px;
+
+    display: grid;
+    grid-template-rows: repeat(3, 80px);
+    grid-template-columns: repeat(3, 80px);
+
+    padding-left: 60px;
+    padding-top: 60px;
+
+    background-color: yellow;
+
+    position: absolute;
+}
+
+.gameboard-cell {
+    border: black 4px solid;
+}
+
+#one, #two, #three {
+    border-top: 0px;
+}
+
+#one, #four, #seven {
+    border-left: 0px;
+}
+
+#three, #six, #nine {
+    border-right: 0px;
+}
+
+#seven, #eight, #nine {
+    border-bottom: 0px;
+}
