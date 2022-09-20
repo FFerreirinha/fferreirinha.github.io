@@ -5,6 +5,21 @@ html, body {
     width: 100vw;
 }
 
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgb(128, 128, 128, 0.5);
+    width: 0%;
+    height: 0%;
+}
+
+.overlay-active {
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 1;
+}
+
 .wrapper {
     min-height: 100vh;
 
@@ -26,7 +41,7 @@ html, body {
     background-color: red;
 }
 
-.gameboard {
+#gameboard {
     height: 300px;
     width: 300px;
 
@@ -44,20 +59,22 @@ html, body {
 
 .gameboard-cell {
     border: black 4px solid;
+
+ 
 }
 
-#one, #two, #three {
+#\30, #\31, #\32 {
     border-top: 0px;
 }
 
-#one, #four, #seven {
+#\30, #\33, #\36 {
     border-left: 0px;
 }
 
-#three, #six, #nine {
+#\32, #\35, #\38 {
     border-right: 0px;
 }
 
-#seven, #eight, #nine {
+#\36, #\37, #\38 {
     border-bottom: 0px;
 }
