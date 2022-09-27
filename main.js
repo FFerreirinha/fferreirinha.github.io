@@ -45,6 +45,9 @@ const gameBoard = (() => {
         gameBoard.setUp();
     }
 
+    restartButton = document.getElementById("restart-button");
+    restartButton.addEventListener("click", () => {reset()});
+
     return{setUp, reset, moveBoard, getBoard};
 })();
 
