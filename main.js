@@ -64,17 +64,17 @@ const gameController = (() => {
     const resetCounter = () => { gameController.moveCounter = 0;}
 
     const checkForGameState = (board) => {
-        const rowWinCondition = (((board[0] === board[1] === board[2]) && board[0] !== "0") || ((board[3] === board[4] === board[5]) && board[3] !== "0") || ((board[6] === board[7] === board[8]) && board [6] !== "0"));
-        const columnWinCondition = (((board[0] === board[3] === board[6]) && board[0] !== "0") || ((board[1] === board[4] === board[7]) && board[1] !== "0") || ((board[2] === board[5] === board[8]) && board[2] !== "0"))
-        const diagonalWinCondition = (((board[0] === board[4] === board[8]) || board[2] === board[4] === board[6]) && board[4] !== "0");
+        const rowWinCondition = (((board[0] === board[1] && board[0] === board[2]) && board[0] !== "0") || ((board[3] === board[4] && board[3] === board[5]) && board[3] !== "0") || ((board[6] === board[7] && board[6] === board[8]) && board[6] !== "0"));
+        const columnWinCondition = (((board[0] === board[3] && board[0] === board[6]) && board[0] !== "0") || ((board[1] === board[4] && board[1] === board[7]) && board[1] !== "0") || ((board[2] === board[5] && board[2] === board[8]) && board[2] !== "0"))
+        const diagonalWinCondition = (((board[0] === board[4] && board[0] === board[8]) || board[2] === board[4] && board[2] === board[6]) && board[4] !== "0");
         
-        if (rowWinCondition || columnWinCondition || diagonalWinCondition) {
+        if ((rowWinCondition) || (columnWinCondition) || (diagonalWinCondition)) {
             // Code for win
-            overlay.classList.add("overlay-active");
+            displayWinner();
         }
         else if (!(gameBoard.moveBoard.includes("0"))) {
             // Checking for a tie
-            overlay.classList.add("overlay-active");
+            displayTie();
         }
 
  
@@ -89,6 +89,22 @@ const gameController = (() => {
             overlay.classList.remove("overlay-active");
     })
     
+    const displayWinner = () => {
+        overlay.classList.add("overlay-active");
+
+        if (gameController.moveCounter % 2 !== 0) {
+            overlay.innerText = "Player 1 Wins!";
+        }
+        else {
+            overlay.innerText = "Player 2 Wins!";
+        }
+    }
+
+    const displayTie = () => {
+        overlay.classList.add("overlay-active");
+        overlay.innerText = "It's a tie!";
+    }
+
     return {moveCounter, increaseCounter, checkForGameState};
 })();
 
